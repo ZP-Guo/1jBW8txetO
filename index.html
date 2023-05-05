@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #contain{
+            height: 90%;
+            width: 80%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        #myvideo{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <body>
+        <div id="contain">
+            <video id="myvideo" controls >
+                <source  src="./1.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+    </body>
+    <script>
+        let myvideo = document.querySelector('video');
+        let full = document.querySelector('html');
+        let curPlay=false;
+        myvideo.addEventListener('click',(event)=>{
+            if(!curPlay){
+                myvideo.pause();
+                curPlay=true;
+            }else{
+                myvideo.play();
+                curPlay=false;
+            }
+            event.stopPropagation();
+        },)
+        full.addEventListener('click',()=>{
+            if(!curPlay){
+                myvideo.play();
+                curPlay=true;
+            }else{
+                myvideo.pause();
+                curPlay=false;
+            }
+        })
+    </script>
+</html>
